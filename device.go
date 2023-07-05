@@ -2,6 +2,8 @@
 // server hardware and its component attributes between libraries/tools.
 package common
 
+import "net"
+
 // Common holds attributes shared by all components
 type Common struct {
 	Oem          bool              `json:"oem"`
@@ -175,15 +177,16 @@ type NIC struct {
 type NICPort struct {
 	Common
 
-	ID                   string `json:"id"`
-	SpeedBits            int64  `json:"speed_bits,omitempty"`
-	PhysicalID           string `json:"physid,omitempty"`
-	BusInfo              string `json:"bus_info,omitempty"`
-	ActiveLinkTechnology string `json:"active_link_technology,omitempty"`
-	MacAddress           string `json:"macaddress,omitempty"`
-	LinkStatus           string `json:"link_status,omitempty"`
-	AutoNeg              bool   `json:"auto_neg,omitempty"`
-	MTUSize              int    `json:"mtu_size,omitempty"`
+	ID                   string   `json:"id"`
+	SpeedBits            int64    `json:"speed_bits,omitempty"`
+	PhysicalID           string   `json:"physid,omitempty"`
+	BusInfo              string   `json:"bus_info,omitempty"`
+	ActiveLinkTechnology string   `json:"active_link_technology,omitempty"`
+	MacAddress           string   `json:"macaddress,omitempty"`
+	LinkStatus           string   `json:"link_status,omitempty"`
+	AutoNeg              bool     `json:"auto_neg,omitempty"`
+	MTUSize              int      `json:"mtu_size,omitempty"`
+	IPAddresses          []net.IP `json:"ips_addresses,omitempty"`
 }
 
 // StorageController component
